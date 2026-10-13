@@ -1,12 +1,24 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TaskFormComponent } from './components/task-form/task-form.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskService } from './services/task.service';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [CommonModule, TaskFormComponent, TaskListComponent],
   templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('todo-pwa');
+  title = 'Todo PWA';
+  private taskService = inject(TaskService);
+
+  isOnline = this.taskService.isOnline;
+  pendingSyncCount = this.taskService.pendingSyncCount;
+
+  onTaskAdded(event: { title: string; description?: string }): void {
+    this.taskService.addTask(event.title, event.description);
+  }
 }

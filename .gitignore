@@ -1,44 +1,50 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
+# Dependencies
 /node_modules
-npm-debug.log
-yarn-error.log
+/.pnp
+.pnp.js
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Build
+/dist
+/.angular
 
-# Visual Studio Code
+# Environment
+/.env
+.env.local
+.env.*.local
+
+# IDE
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/mcp.json
-.history/*
+.idea
+*.swp
+*.swo
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
-
-# System files
+# OS
 .DS_Store
 Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tests
+/coverage
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Documentación temporal
+*.tmp
+# Entornos con credenciales (NO SUBIR)
+/src/environments/environment.ts
+
+# Entornos con credenciales reales (NO SUBIR)
+/src/environments/environment.ts
+
+# Backups con credenciales
+*.bak
+docs/*.bak
+docs/**/*.bak

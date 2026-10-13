@@ -1,0 +1,14 @@
+<ul class="task-list">
+  <li *ngFor="let task of tasks()" [class.completed]="task.completed">
+    <input type="checkbox" [checked]="task.completed" (change)="toggle(task)" />
+    <div class="task-info">
+      <strong>{{ task.title }}</strong>
+      <small *ngIf="task.description">{{ task.description }}</small>
+    </div>
+    <div class="actions">
+      <button (click)="edit(task)">✏️</button>
+      <button (click)="delete(task.id)">🗑️</button>
+    </div>
+  </li>
+  <li *ngIf="tasks().length === 0" class="empty">No hay tareas</li>
+</ul>
